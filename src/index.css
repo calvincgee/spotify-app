@@ -1,0 +1,66 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--main-bg-color);
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+:root {
+  --main-bg-color: #121212;
+  --accent-color: #1DB954;
+  --secondary-bg-color: #212121;
+  --primary-letters: #000000;
+  --secondary-letters: #ffffff;
+}
+
+#root {
+  min-height: 100%;
+}
+
+#login {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-letters);
+
+  border-radius: 20px;
+  height: 50%
+}
+
+#playlists, #selected {
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-letters);
+
+  border-radius: 20px;
+  width: 80%
+}
+
+#playlistForm {
+  width: 100%
+}
+
+.hide {
+  display: none;
+}
+
+#checkboxes input[type=checkbox]{
+  display: none;
+}
+
+.playlistBox {
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.unselected {
+  border: 5px solid var(--secondary-bg-color);
+}
+
+.selected {
+  border: 5px solid #FFFFC2;
+}
+
