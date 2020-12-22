@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const client_id = process.env.CLIENT_ID; // Your client id
 const client_secret = process.env.CLIENT_SECRET; // Your secret
-const BASE_URL = process.env.BASE_URL || "http://localhost:5000/"
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000/";
 var redirect_uri = `${BASE_URL}api/callback`; // Your redirect uri
 
 /**
