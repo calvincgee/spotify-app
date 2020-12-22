@@ -158,7 +158,7 @@ function App() {
         <div id ="login" className="d-flex flex-column w-50 align-items-center mt-5 pt-5 pb-5">
           <h1>Mergify</h1>
           <p className="mt-3">The easiest way to merge Spotify playlists</p>
-          <a href = {`http://localhost:5000/api/login`}>
+          <a href = {`https://spotify-playlist-merger.herokuapp.com/api/login`}>
             <button type="button" className="btn btn-success mt-5">Login to Spotify</button>
           </a>
         </div>
