@@ -169,7 +169,7 @@ function App() {
           <h1>Mergify</h1>
           <form id = "playlistForm" className="d-flex flex-column align-items-center mt-3">
             <div className = "d-flex flex-row justify-content-between align-items-center w-75 mb-3" style = {{height: "20px"}}>
-              <p>Select your playlists that you want to combine</p>
+              <p>Select the playlists that you want to combine</p>
               <button type = "button" className= {selectedPlaylists.length < 1 ? "hide btn btn-success" : "btn btn-success"}  onClick = {handleReady}>Create your playlist</button>
             </div>
             {
