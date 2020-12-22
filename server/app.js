@@ -4,10 +4,12 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 const path = require('path');
+require('dotenv').config();
 
-var client_id = process.env.CLIENT_ID; // Your client id
-var client_secret = process.env.CLIENT_SECRET; // Your secret
-var redirect_uri = 'http://localhost:9000/callback'; // Your redirect uri
+const client_id = process.env.CLIENT_ID; // Your client id
+const client_secret = process.env.CLIENT_SECRET; // Your secret
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000/"
+var redirect_uri = `${BASE_URL}api/callback`; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -50,7 +52,7 @@ app.get('/api/login', function(req, res) {
     }));
 });
 
-app.get('/callback', function(req, res) {
+app.get('/api/callback', function(req, res) {
 
   // your application requests refresh and access tokens
   // after checking the state parameter
@@ -60,7 +62,7 @@ app.get('/callback', function(req, res) {
   var storedState = req.cookies ? req.cookies[stateKey] : null;
 
   if (state === null || state !== storedState) {
-    res.redirect('http://localhost:9000/#' +
+    res.redirect(`${BASE_URL}#` +
       querystring.stringify({
         error: 'state_mismatch'
       }));
@@ -92,13 +94,13 @@ app.get('/callback', function(req, res) {
         };
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:9000/#' +
+        res.redirect(`${BASE_URL}#` +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
           }));
         } else {
-        res.redirect('/http://localhost:9000/#' +
+        res.redirect(`${BASE_URL}#` +
           querystring.stringify({
             error: 'invalid_token'
           }));
@@ -131,6 +133,6 @@ app.get('/refresh_token', function(req, res) {
   });
 });
 
-const PORT = process.env.PORT || 9000
+const PORT = process.env.PORT || 5000
 console.log(`Listening on ${PORT}`);
 app.listen(PORT);
